@@ -1,0 +1,161 @@
+unit Clase_Numero;
+
+interface
+uses SysUtils;
+
+Type
+  Numero = class
+    Private
+      Valor: integer;
+    Public
+      Function Binario(Parametro:Integer):String;
+      Function Hexadecimal(Parametro:Integer):string;
+      Function BaseN(Parametro:Integer;Base:Integer):string;
+      Function Romano(Parametro:Integer):string;
+      Function Literal(Parametro:Integer):string;
+      Function Invertir_Palabra(Parametro:String):String;
+  end;
+
+implementation
+
+function Numero.BaseN(Parametro:Integer;Base:Integer): string;
+var Residuo : Integer;
+     N_Numero : String;
+     Letras :String;
+begin
+Letras := 'ABCDEFHIJKLMNOPQRSTUVWXYZ';
+N_Numero := '';
+  while Parametro > 0 do
+  Begin
+  if Parametro < Base then
+    Begin
+      N_Numero := N_Numero + IntToStr(Parametro);
+      Break;
+    End;
+    if Base >= 11 then
+    Begin
+      Residuo := Parametro mod Base;
+      if Residuo >=11 then
+      Begin
+        Residuo:= Trunc(Residuo mod 10);
+        N_Numero:= N_Numero + Letras[Residuo+1];
+        Parametro:= Parametro div Base;
+        Continue;
+      End;
+      N_Numero := N_Numero + IntToStr(Residuo);
+      Parametro:= Parametro div Base;
+      Continue;
+    End;
+    
+    Residuo:= Parametro mod Base;
+    N_Numero := N_Numero + IntToStr(Residuo);
+    Parametro:= Parametro div Base;
+  End;
+  Result:= Invertir_Palabra(N_Numero);
+end;
+
+function Numero.Binario(Parametro:Integer): String;
+var Residuo : Integer;
+     N_Numero : String;
+     Letras :String;
+begin
+Letras := 'ABCDEFHIJKLMNOPQRSTUVWXYZ';
+N_Numero := '';
+  while Parametro > 0 do
+  Begin
+  if Parametro < 2 then
+    Begin
+      N_Numero := N_Numero + IntToStr(Parametro);
+      Break;
+    End;
+    if 2 >= 11 then
+    Begin
+      Residuo := Parametro mod 2;
+      if Residuo >=11 then
+      Begin
+        Residuo:= Trunc(Residuo mod 10);
+        N_Numero:= N_Numero + Letras[Residuo+1];
+        Parametro:= Parametro div 2;
+        Continue;
+      End;
+      N_Numero := N_Numero + IntToStr(Residuo);
+      Parametro:= Parametro div 2;
+      Continue;
+    End;
+    
+    Residuo:= Parametro mod 2;
+    N_Numero := N_Numero + IntToStr(Residuo);
+    Parametro:= Parametro div 2;
+  End;
+  Result:= Invertir_Palabra(N_Numero);
+end;
+
+function Numero.Hexadecimal(Parametro:Integer): string;
+var Residuo : Integer;
+     N_Numero : String;
+     Letras :String;
+begin
+Letras := 'ABCDEFHIJKLMNOPQRSTUVWXYZ';
+N_Numero := '';
+  while Parametro > 0 do
+  Begin
+  if Parametro < 16 then
+    Begin
+      N_Numero := N_Numero + IntToStr(Parametro);
+      Break;
+    End;
+    if 16 >= 11 then
+    Begin
+      Residuo := Parametro mod 16;
+      if Residuo >=11 then
+      Begin
+        Residuo:= Trunc(Residuo mod 10);
+        N_Numero:= N_Numero + Letras[Residuo+1];
+        Parametro:= Parametro div 16;
+        Continue;
+      End;
+      N_Numero := N_Numero + IntToStr(Residuo);
+      Parametro:= Parametro div 16;
+      Continue;
+    End;
+    
+    Residuo:= Parametro mod 16;
+    N_Numero := N_Numero + IntToStr(Residuo);
+    Parametro:= Parametro div 16;
+  End;
+  Result:= Invertir_Palabra(N_Numero);
+end;
+
+function Numero.Invertir_Palabra(Parametro: String): String;
+var Longitud: Integer;
+    N_Palabra:String;
+begin
+N_Palabra:='';
+Longitud:= Length(Parametro);
+While Longitud <> 0 do
+  Begin
+    N_Palabra := N_Palabra + Parametro[Longitud];
+    Longitud:=Longitud -1;
+  End;
+Result:= N_Palabra;
+end;
+
+function Numero.Literal(Parametro:Integer): string;
+begin
+
+end;
+
+function Numero.Romano(Parametro:Integer): string;
+var Romano:String;
+begin
+Romano:= '';
+    While Parametro>=1000 do Begin Romano:=Romano+'M'; Parametro:=Parametro - 1000 end;
+    While Parametro>=500 do Begin Romano:=Romano+'D'; Parametro:=Parametro - 500 end;
+    While Parametro>=100 do Begin Romano:=Romano+'C' ; Parametro:=Parametro - 100 end;
+    While Parametro>=50 do Begin Romano:=Romano+'L'; Parametro:=Parametro - 50 end;
+    While Parametro>=10 do Begin Romano:=Romano+'X'; Parametro:=Parametro - 10 end;
+    While Parametro>=5 do Begin Romano:=Romano+'V'; Parametro:=Parametro - 5 end;
+    While Parametro>=1 do Begin Romano:=Romano+'I'; Parametro:=Parametro - 1 end;
+Result:=Romano;
+end;
+end.

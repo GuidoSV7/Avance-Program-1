@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/03/09 16:42:55.000.599,=C:\Users\pumar\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/03/09 16:43:04.000.580,=C:\Users\pumar\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2021/03/09 16:44:46.000.891,C:\Users\pumar\Desktop\INF-120\Avance INF-120\3.Vectores\Vectores Chars\UCMatrizChars.pas=C:\Users\pumar\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2021/03/09 16:44:56.000.717,C:\Users\pumar\Desktop\INF-120\Avance INF-120\3.Vectores\Vectores Chars\UFPrincipal.dfm=C:\Users\pumar\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2021/03/09 16:44:56.000.717,C:\Users\pumar\Desktop\INF-120\Avance INF-120\3.Vectores\Vectores Chars\UFPrincipal.pas=C:\Users\pumar\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/03/09 16:45:13.000.293,C:\Users\pumar\Desktop\INF-120\Avance INF-120\3.Vectores\Vectores Chars\Matriz_con_Chars.dproj=C:\Users\pumar\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

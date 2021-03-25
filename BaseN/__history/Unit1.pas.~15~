@@ -1,0 +1,104 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Button1: TButton;
+    MainMenu1: TMainMenu;
+    Binario1: TMenuItem;
+    Hexadecimal1: TMenuItem;
+    BaseN1: TMenuItem;
+    Romano1: TMenuItem;
+    Literal1: TMenuItem;
+    Edit3: TEdit;
+    procedure BaseN1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+Type
+  Numero = class
+    Private
+      Valor: integer;
+    Public
+      Function Binario(Parametro:Integer):integer;
+      Function Hexadecimal(Parametro:Integer):string;
+      Function BaseN(Parametro:Integer;Base:Integer):string;
+      Function Romano(Parametro:Integer):string;
+      Function Literal(Parametro:Integer):string;
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ Numero }
+
+function Numero.BaseN(Parametro:Integer;Base:Integer): string;
+var Residuo : Integer;
+     N_Numero : String;
+     Letras :String;
+     //Vector_Letras: array['A'..'Z'] of String;
+begin
+Letras := 'ABCDEFHIJKLMNOPQRSTUVWXYZ';
+N_Numero := '';
+  if Parametro > 0 then
+  Begin
+    if Base >= 11 then
+    Begin
+      Residuo := Parametro mod Base;
+      if Residuo >=11 then
+      Begin
+        Residuo:= Trunc(Residuo div 10);
+        N_Numero:= N_Numero + Letras[Residuo+1];
+      End;
+      N_Numero := N_Numero + IntToStr(Residuo);
+    End;
+    Residuo:= Parametro mod Base;
+    N_Numero := N_Numero + IntToStr(Residuo);
+    Parametro:= Parametro div Base;
+  End;
+  Result:= N_Numero;
+end;
+
+function Numero.Binario(Parametro:Integer): integer;
+begin
+
+end;
+
+function Numero.Hexadecimal(Parametro:Integer): string;
+begin
+
+end;
+
+function Numero.Literal(Parametro:Integer): string;
+begin
+
+end;
+
+function Numero.Romano(Parametro:Integer): string;
+begin
+
+end;
+
+procedure TForm1.BaseN1Click(Sender: TObject);
+var Numero,Base: Integer;
+    Resultado:String;
+begin
+Edit3.Text:=
+
+end;
+
+end.
